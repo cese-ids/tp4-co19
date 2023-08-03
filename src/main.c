@@ -26,8 +26,11 @@ SPDX-License-Identifier: MIT
 /* === Headers files inclusions =============================================================== */
 
 #include "main.h"
+#include "gpio.h"
 
 /* === Macros definitions ====================================================================== */
+#define LED_ROJO_PORT 3
+#define LED_ROJO_BIT  4
 
 /* === Private data type declarations ========================================================== */
 
@@ -44,6 +47,10 @@ SPDX-License-Identifier: MIT
 /* === Public function implementation ========================================================== */
 
 int main(void) {
+    gpio_t led_rojo = gpioCreate(LED_ROJO_PORT, LED_ROJO_BIT);
+    gpioSetDirection(led_rojo, true);
+    gpioSetState(led_rojo, true);
+
     return 0;
 }
 
